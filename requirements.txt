@@ -9,3 +9,4 @@ pypdf
 streamlit
 sentence-transformers
 python-dotenv
+ipykernel
