@@ -38,6 +38,34 @@ This chatbot is designed to help users understand **Word Embeddings** by retriev
 
 ### 1. Clone the Repository
 
-```bash
 git clone https://github.com/singhsrj/Build-Fast-with-AI.git
 cd Build-Fast-with-AI
+
+###2. Create & Activate a Virtual Environment
+
+# Create venv (Linux/macOS)
+python3 -m venv venv
+source venv/bin/activate
+
+# Or on Windows
+python -m venv venv
+venv\Scripts\activate
+
+3. Install Dependencies
+Make sure you have pip updated, then run:
+
+pip install -r requirements.txt
+
+💡 Deployment
+This application is deployed and publicly accessible on Streamlit Community Cloud:
+
+🌐 Live Demo: https://ragbuildfastai.streamlit.app/
+
+To deploy your own version:
+
+-Push your code to a public GitHub repository.
+
+-Go to Streamlit Cloud, log in, and connect the repository.
+
+-Set your Groq API key in the Streamlit secrets.
+
