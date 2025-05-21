@@ -103,11 +103,6 @@ The chatbot will provide accurate, context-rich answers based on the latest web 
 
 Feel free to fork, open issues, or submit pull requests!
 
----
-
-## 📄 License
-
-MIT License
 
 ---
 
