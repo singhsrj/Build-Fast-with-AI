@@ -2,7 +2,8 @@ import os
 import streamlit as st
 import bs4
 from operator import itemgetter
-
+from chromadb import Client as ChromaClient
+from chromadb.config import Settings
 # LangChain and components
 from langchain_core.prompts import PromptTemplate
 from langchain.prompts import ChatPromptTemplate
@@ -76,7 +77,24 @@ def build_rag_chain():
 
     # Embed with HuggingFace
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-    vectorstore = Chroma.from_documents(splits, embedding=embeddings)
+    # vectorstore = Chroma.from_documents(splits, embedding=embeddings)
+
+    # # Create retriever
+    # retriever = vectorstore.as_retriever()
+
+    chroma_client = ChromaClient(Settings(
+    chroma_db_impl="duckdb+parquet",
+    persist_directory="./chroma_db"
+))
+
+
+    # Use Chroma with in-memory client
+    vectorstore = Chroma.from_documents(
+        documents=splits,
+        embedding=embeddings,
+        client=chroma_client,
+        collection_name="word_embeddings"
+    )
 
     # Create retriever
     retriever = vectorstore.as_retriever()
