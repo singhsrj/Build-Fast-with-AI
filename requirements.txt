@@ -10,3 +10,4 @@ streamlit
 sentence-transformers
 python-dotenv
 ipykernel
+faiss-cpu
