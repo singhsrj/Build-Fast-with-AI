@@ -1,0 +1,11 @@
+langchain_community
+tiktoken
+langchainhub
+langchain
+chromadb
+langchain_groq
+bs4
+pypdf
+streamlit
+sentence-transformers
+python-dotenv
