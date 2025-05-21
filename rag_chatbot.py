@@ -26,7 +26,7 @@ import os
 load_dotenv()
 
 # Get the API key
-groq_api_key = os.getenv("GROQ_API_KEY")
+groq_api_key = "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"
 
 
 # Streamlit app config
@@ -90,7 +90,7 @@ def build_rag_chain():
 # ))
 
 
-    vectorstore = FAISS.from_documents(...)
+    vectorstore = FAISS.from_documents(splits,embedding=embeddings)
 
 
     # Create retriever
