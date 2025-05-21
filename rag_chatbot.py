@@ -2,8 +2,10 @@ import os
 import streamlit as st
 import bs4
 from operator import itemgetter
-from chromadb import Client as ChromaClient
-from chromadb.config import Settings
+# from chromadb import Client as ChromaClient
+# from chromadb.config import Settings
+from langchain_community.vectorstores import FAISS
+
 # LangChain and components
 from langchain_core.prompts import PromptTemplate
 from langchain.prompts import ChatPromptTemplate
@@ -82,19 +84,14 @@ def build_rag_chain():
     # # Create retriever
     # retriever = vectorstore.as_retriever()
 
-    chroma_client = ChromaClient(Settings(
-    chroma_db_impl="duckdb+parquet",
-    persist_directory="./chroma_db"
-))
+#     chroma_client = ChromaClient(Settings(
+#     chroma_db_impl="duckdb+parquet",
+#     persist_directory="./chroma_db"
+# ))
 
 
-    # Use Chroma with in-memory client
-    vectorstore = Chroma.from_documents(
-        documents=splits,
-        embedding=embeddings,
-        client=chroma_client,
-        collection_name="word_embeddings"
-    )
+    vectorstore = FAISS.from_documents(...)
+
 
     # Create retriever
     retriever = vectorstore.as_retriever()
